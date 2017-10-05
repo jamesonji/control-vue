@@ -1,7 +1,7 @@
 <template>
-  <div class="hello">
-    <p>{{msg}}</p>
-    <button @click="signIn('Bret')">Auth User</button>
+  <div class="index-container">
+    <input type="text" name="username" v-model="username">
+    <button @click="signIn(username)">Auth User</button>
   </div>
 </template>
 
@@ -12,7 +12,7 @@ export default {
   name: 'index',
   data () {
     return {
-      msg: 'Login to use our app'
+      username: ''
     }
   },
   computed: {

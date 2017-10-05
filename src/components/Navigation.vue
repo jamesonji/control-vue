@@ -15,13 +15,13 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapGetters([
-      'getUser',
-      'signedIn'
+      'getUser',      // get current user
+      'signedIn'      // get current signedIn Status
     ])
   },
   methods: {
     ...mapActions([
-      'signOut'
+      'signOut'       // sign out user
     ])
   }
 }

@@ -27,6 +27,7 @@ const state = {
 }
 
 const getters = {
+  // get current user
   getUser: (state) => {
     return state.user
   }

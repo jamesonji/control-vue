@@ -1,6 +1,5 @@
 <template>
   <div class="todo-container">    
-    <p>My name is {{name}}</p>
     <ul class="todo-list">
       <li v-for="todo in userTodos">{{todo.title}}</li>
     </ul>
@@ -12,11 +11,6 @@
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  data () {
-    return {
-      name: 'Song'
-    }
-  },
   computed: {
     ...mapGetters([
       'allTodos',
