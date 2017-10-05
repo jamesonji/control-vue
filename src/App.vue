@@ -2,7 +2,6 @@
   <div id="app">
     <Navigation></Navigation>
     <router-view></router-view>
-    <button @click="getUsers">Get Users</button>
   </div>
 </template>
 
@@ -12,11 +11,6 @@ import Navigation from './components/Navigation.vue'
 export default {
   name: 'app',
   methods: {
-    getUsers () {
-      this.$http.get('http://jsonplaceholder.typicode.com/users')
-      .then(res => console.log(res.body))
-      .catch(err => console.log(err))
-    }
   },
   components: {
     Navigation
