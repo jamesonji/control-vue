@@ -1,8 +1,15 @@
 <template>
   <div class="todo-container">    
-    <ul class="todo-list">
-      <li v-for="todo in userTodos">{{todo.title}}</li>
-    </ul>
+    <ol class="todo-list">
+      <li v-for="todo in userTodos">
+        <span class="todo-title" 
+              :class="{complete: todo.completed}"
+              @click="toggleTodo(todo.id)"
+              >
+              {{todo.title}}
+        </span>
+      </li>
+    </ol>
     <button @click="fetchTodos">Fetch Todos</button>
   </div>
 </template>
@@ -19,11 +26,15 @@ export default {
   },
   methods: {
     ...mapActions([
-      'fetchTodos'
+      'fetchTodos',
+      'toggleTodo'
     ])
   }
 }
 </script>
 
 <style scoped>
+  .todo-title.complete{
+    text-decoration: line-through;
+  }
 </style>

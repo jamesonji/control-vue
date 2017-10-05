@@ -1,12 +1,18 @@
 <template>
   <div class="index-container">
-    <input type="text" name="username" v-model="username">
-    <button @click="signIn(username)">Auth User</button>
+    <template v-if="!signedIn">
+      <input type="text" name="username" v-model="username">
+      <button @click="signIn(username)">Auth User</button>
+    </template>
+    <template v-else>
+      <Todos></Todos>
+    </template>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import Todos from './Todos.vue'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'index',
@@ -15,7 +21,13 @@ export default {
       username: ''
     }
   },
+  components: {
+    Todos
+  },
   computed: {
+    ...mapGetters([
+      'signedIn'
+    ])
   },
   methods: {
     ...mapActions([

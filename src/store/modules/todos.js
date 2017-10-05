@@ -29,6 +29,16 @@ const actions = {
     })
     // Console log error if fetch failed
     .catch(err => console.log(err))
+  },
+  toggleTodo ({commit, state}, todoId) {
+    let newState = state.todos.map(todo => {
+      if (todo.id !== todoId) {
+        return todo
+      }
+      todo.completed = !todo.completed
+      return todo
+    })
+    commit('updateTodos', newState)
   }
 }
 
