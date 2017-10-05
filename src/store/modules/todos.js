@@ -13,23 +13,28 @@ const state = {
 }
 
 const getters = {
-  todos: state => {
+  allTodos: state => {
     return state.todos
   }
 }
 
 const actions = {
-  getTodos ({commit}) {
+  // Fetch todo list from api
+  fetchTodos ({commit}) {
     axios.get('https://jsonplaceholder.typicode.com/todos')
-    // .then(todos => commit('getTodos', todos))
-    .then(todos => console.log(todos))
+    .then(todos => {
+      // Receive todo list and update current state
+      commit('updateTodos', todos.data)
+    })
+    // Console log error if fetch failed
     .catch(err => console.log(err))
   }
 }
 
 const mutations = {
-  getTodos: (state, payload) => {
-    state.value = payload
+  // Update current todos state
+  updateTodos: (state, payload) => {
+    state.todos = payload
   }
 }
 

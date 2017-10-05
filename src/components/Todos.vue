@@ -1,12 +1,15 @@
 <template>
-  <div class="">    
+  <div class="todo-container">    
     <p>My name is {{name}}</p>
-    <button @click="getTodos">Get Todos</button>
+    <ul class="todo-list">
+      <li v-for="todo in allTodos">{{todo.title}}</li>
+    </ul>
+    <button @click="fetchTodos">Fetch Todos</button>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   data () {
@@ -14,9 +17,14 @@ export default {
       name: 'Song'
     }
   },
+  computed: {
+    ...mapGetters([
+      'allTodos'
+    ])
+  },
   methods: {
     ...mapActions([
-      'getTodos'
+      'fetchTodos'
     ])
   }
 }
