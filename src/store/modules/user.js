@@ -33,6 +33,9 @@ const actions = {
 }
 
 const mutations = {
+  updateUser: (state, userObj) => {
+    state.user = userObj
+  }
 }
 
 export default{

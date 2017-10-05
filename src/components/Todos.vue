@@ -2,7 +2,7 @@
   <div class="todo-container">    
     <p>My name is {{name}}</p>
     <ul class="todo-list">
-      <li v-for="todo in allTodos">{{todo.title}}</li>
+      <li v-for="todo in userTodos">{{todo.title}}</li>
     </ul>
     <button @click="fetchTodos">Fetch Todos</button>
   </div>
@@ -19,7 +19,8 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'allTodos'
+      'allTodos',
+      'userTodos'
     ])
   },
   methods: {

@@ -13,6 +13,7 @@ const state = {
 }
 
 const getters = {
+  // get all todos
   allTodos: state => {
     return state.todos
   }
