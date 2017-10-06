@@ -2,9 +2,9 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
-import VuexFlash from 'vuex-flash'
+import Notifications from 'vue-notification'
 
-Vue.use(VuexFlash)
+Vue.use(Notifications)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
