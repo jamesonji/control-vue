@@ -8,7 +8,7 @@
       <button @click="cancelNewTodo">Cancel</button>
     </template>
     
-    <ol class="todo-list">
+    <ul class="todo-list">
       <li v-for="todo in userTodos">
         <span class="todo" 
               :class="{complete: todo.completed}"
@@ -17,7 +17,7 @@
               {{todo.title}}
         </span>
       </li>
-    </ol>
+    </ul>
     
   </div>
 </template>
@@ -62,11 +62,22 @@ export default {
 </script>
 
 <style scoped>
-  .todo{
-    cursor: pointer;
-  } 
-  
-  .todo.complete{
-    text-decoration: line-through;
-  }
+.todo-container{
+  max-height: 500px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-color:#fff;
+  border-radius: 15px;
+}
+ul{
+  list-style: none
+}
+.todo{
+  cursor: pointer;
+} 
+
+.todo.complete{
+  text-decoration: line-through;
+  color: 
+}
 </style>

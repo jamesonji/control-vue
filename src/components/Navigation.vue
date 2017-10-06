@@ -1,6 +1,6 @@
 <template>
   <div class="nav">
-    <h1>Simple ToDo</h1>
+    <h1>Control Todo</h1>
     <span v-if="signedIn">Hello {{getUser.username}} !</span>
   </div>
 </template>

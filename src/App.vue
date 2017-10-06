@@ -45,7 +45,14 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 60px;
+  background: #EFEEE9;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: -8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .notification{
