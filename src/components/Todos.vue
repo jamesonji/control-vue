@@ -10,7 +10,6 @@
         </span>
       </li>
     </ol>
-    <button @click="fetchTodos">Fetch Todos</button>
   </div>
 </template>
 
@@ -20,7 +19,6 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapGetters([
-      'allTodos',
       'userTodos'
     ])
   },
@@ -29,6 +27,9 @@ export default {
       'fetchTodos',
       'toggleTodo'
     ])
+  },
+  beforeMount () {
+    this.fetchTodos()
   }
 }
 </script>

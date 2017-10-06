@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Navigation></Navigation>
+    <flash-message variant="success"></flash-message>
     <Index></Index>
   </div>
 </template>

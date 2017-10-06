@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { createFlashStore } from 'vuex-flash'
 
 import * as getters from './getters.js'
 import * as actions from './actions.js'
@@ -21,7 +22,10 @@ const store = new Vuex.Store({
   modules: {
     todosModule,
     userModule
-  }
+  },
+  plugins: [
+    createFlashStore()
+  ]
 })
 
 export default store

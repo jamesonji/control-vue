@@ -30,12 +30,13 @@ const actions = {
     // Console log error if fetch failed
     .catch(err => console.log(err))
   },
+  // Toggle todo completed
   toggleTodo ({commit, state}, todoId) {
+    // Go through entire list and change the one being edited
     let newState = state.todos.map(todo => {
-      if (todo.id !== todoId) {
-        return todo
+      if (todo.id === todoId) {
+        todo.completed = !todo.completed
       }
-      todo.completed = !todo.completed
       return todo
     })
     commit('updateTodos', newState)

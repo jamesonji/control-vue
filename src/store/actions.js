@@ -2,7 +2,6 @@ import axios from 'axios'
 // Check if user exists
 export const signIn = ({ commit, state }, userName) => {
   // First fetch user list from API
-  console.log(userName)
   axios.get('https://jsonplaceholder.typicode.com/users')
     .then(res => res.data)
     // Check if user exists in the user list provided by API
@@ -20,7 +19,9 @@ export const signIn = ({ commit, state }, userName) => {
         commit('setSignedIn', false)
       }
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+      console.log(err)
+    })
   // then show user's todos
   // else, set state signedIn to be false
   // and show error message
