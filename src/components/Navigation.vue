@@ -1,10 +1,7 @@
 <template>
   <div class="nav">
     <h1>Simple ToDo</h1>
-    <template v-if="signedIn">
-      <span>Hello {{getUser.username}} !</span>
-      <button @click="signOut">Log Out</button>
-    </template>
+    <span v-if="signedIn">Hello {{getUser.username}} !</span>
   </div>
 </template>
 

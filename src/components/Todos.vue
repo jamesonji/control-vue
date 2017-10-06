@@ -2,7 +2,7 @@
   <div class="todo-container">    
     <ol class="todo-list">
       <li v-for="todo in userTodos">
-        <span class="todo-title" 
+        <span class="todo" 
               :class="{complete: todo.completed}"
               @click="toggleTodo(todo.id)"
               >
@@ -34,7 +34,11 @@ export default {
 </script>
 
 <style scoped>
-  .todo-title.complete{
+  .todo{
+    cursor: pointer;
+  } 
+  
+  .todo.complete{
     text-decoration: line-through;
   }
 </style>
