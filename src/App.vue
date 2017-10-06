@@ -47,9 +47,10 @@ export default {
   color: #2c3e50;
   background: #EFEEE9;
   position: absolute;
+  top:0px;
+  left: 0px;
   width: 100%;
   height: 100%;
-  margin: -8px;
   display: flex;
   flex-direction: column;
   align-items: center;
