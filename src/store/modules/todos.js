@@ -47,6 +47,10 @@ const mutations = {
   // Update current todos state
   updateTodos: (state, payload) => {
     state.todos = payload
+  },
+  // Append a new todo to the list
+  appendNewTodo: (state, payload) => {
+    state.todos.push(payload)
   }
 }
 

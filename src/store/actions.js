@@ -20,25 +20,27 @@ export const signIn = ({ commit, state }, userName) => {
         // set current user object
         commit('updateUser', user[0])
         // then change signIn status to be true
+        // todos will be fetched in component will mount
         commit('setSignedIn', true)
-        console.log('logged In')
       } else {
         // cannot find a match record
         // sign failed
         commit('setSignedIn', false)
         commit('notify/push', {
           title: 'Notificaton',
-          text: 'Failed to login',
+          text: 'Failed to login, please try again',
           type: 'warning'
         }, { root: true })
       }
     })
     .catch(err => {
       console.log(err)
+      commit('notify/push', {
+        title: 'Notificaton',
+        text: 'Something went wrong, please try again',
+        type: 'warning'
+      }, { root: true })
     })
-    // then show user's todos
-    // else, set state signedIn to be false
-    // and show error message
   }
 }
 
@@ -47,3 +49,24 @@ export const signOut = ({commit, state}) => {
   commit('setSignedIn', false)
 }
 
+export const saveNewTodo = ({commit, state}, newTodo) => {
+  if (newTodo === '') {
+    // If new todo is empty string
+    // show error message
+    commit('notify/push', {
+      title: 'Invalid todo item',
+      text: 'New todo can not be empty.',
+      type: 'warning'
+    }, { root: true })
+  } else {
+    // Construct new todo item
+    // Then save it to the todo list
+    let newTodoObj = {
+      userId: state.userModule.user.id,
+      id: state.todosModule.todos.length,
+      title: newTodo,
+      completed: false
+    }
+    commit('appendNewTodo', newTodoObj)
+  }
+}
