@@ -1,30 +1,33 @@
 <template>
   <div class="todo-container">   
-    
-    <md-button class="md-fab md-mini" v-show="!showNewTodoInput" @click="showTodoInput">
-      <md-icon>add</md-icon>
-    </md-button>
-    
-    <template class="new-todo-container" v-if="showNewTodoInput">
-      <input type="text" v-model="newTodo" class="todo-input"/>
-      <md-button class="md-fab md-mini" @click="addNewTodo(newTodo)">
-        <md-icon>save</md-icon>
+    <div class="todo-control">
+      <md-button class="md-fab md-mini" v-show="!showNewTodoInput" @click="showTodoInput">
+        <md-icon>add</md-icon>
       </md-button>
-      <md-button class="md-fab md-clean md-mini" @click="cancelNewTodo">
-        <md-icon>close</md-icon>
-      </md-button>
-    </template>
+      
+      <div class="new-todo-container" v-if="showNewTodoInput">
+        <input type="text" v-model="newTodo" class="todo-input"/>
+        
+        <md-button class="md-fab md-primary md-mini" @click="addNewTodo(newTodo)">
+          <md-icon>save</md-icon>
+        </md-button>
+        
+        <md-button class="md-fab md-clean md-mini" @click="cancelNewTodo">
+          <md-icon>close</md-icon>
+        </md-button>
+      </div>
+    </div>
     
-    <ul class="todo-list">
-      <li v-for="todo in allTodos">
+    <div class="todo-list-container">
+      <div class="todo-list" v-for="todo in allTodos">
         <span class="todo" 
               :class="{complete: todo.completed}"
               @click="toggleTodo(todo.id)"
               >
               {{todo.title}}
         </span>
-      </li>
-    </ul>
+      </div>
+    </div>
     
   </div>
 </template>
@@ -50,6 +53,7 @@ export default {
     },
     addNewTodo (todo) {
       this.showNewTodoInput = false
+      this.newTodo = ''
       this.saveNewTodo(todo)
     },
     cancelNewTodo () {
@@ -69,20 +73,32 @@ export default {
 </script>
 
 <style scoped>
-.todo-list{
-  max-height: 500px;
+.todo-control{
+  width: 600px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.new-todo-container{
+  width: 80%;
+}
+.todo-list-container{
+  margin-top: 15px;
+  max-height: 450px;
   overflow-x: hidden;
   overflow-y: scroll;
   background-color:#fff;
   border-radius: 15px;
-  padding: -10px 10px;
 }
-
-ul{
-  list-style: none
+.todo-list{
+  padding: 20px;
+  height: 40px;
+  border-bottom: 1px solid #b2cfe8;
 }
 .todo{
   cursor: pointer;
+  font-size: 20px;
 } 
 
 .todo.complete{
@@ -92,7 +108,7 @@ ul{
 
 .todo-input{
   height: 50px;
-  width: 60%;
+  width: 70%;
   border: none;
   border-radius: 10px;
   padding: 10px;

@@ -1,7 +1,9 @@
 <template>
   <div class="nav">
-    <h1>Control Todo</h1>
-    <h3 v-if="signedIn">Hello {{getUser.username}} !</h3>
+    <div class="nav-content">
+      <h1>Control Todo</h1>
+      <h3 v-if="signedIn">Hello {{getUser.username}} !</h3>
+    </div>
   </div>
 </template>
 
@@ -24,7 +26,7 @@ export default {
 </script>
 
 <style scoped>
-.nav{
+.nav-content{
   display: flex;
   flex-direction: column;
   align-items: center;
