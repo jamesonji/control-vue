@@ -16,7 +16,7 @@
     </template>
     
     <ul class="todo-list">
-      <li v-for="todo in userTodos">
+      <li v-for="todo in allTodos">
         <span class="todo" 
               :class="{complete: todo.completed}"
               @click="toggleTodo(todo.id)"
@@ -41,7 +41,7 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'userTodos'
+      'allTodos'
     ])
   },
   methods: {

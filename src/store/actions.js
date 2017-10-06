@@ -49,6 +49,26 @@ export const signOut = ({commit, state}) => {
   commit('setSignedIn', false)
 }
 
+// Fetch todo list from api
+export const fetchTodos = ({commit, state}) => {
+  axios.get('https://jsonplaceholder.typicode.com/todos')
+  .then(res => res.data)
+  .then(todos => {
+    // Receive todo list
+    // Filter the list to get user's todos
+    let filetedTodos = todos.filter(todo => {
+      return todo.userId === state.userModule.user.id
+    })
+    return filetedTodos
+  })
+  // Update current todo list
+  .then(todos => {
+    commit('updateTodos', todos)
+  })
+  // Console log error if fetch failed
+  .catch(err => console.log(err))
+}
+
 export const saveNewTodo = ({commit, state}, newTodo) => {
   if (newTodo === '') {
     // If new todo is empty string

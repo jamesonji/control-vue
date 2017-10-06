@@ -1,5 +1,3 @@
-import axios from 'axios'
-
 const state = {
   /* Sample todo from API
   [{
@@ -15,21 +13,11 @@ const state = {
 const getters = {
   // get all todos
   allTodos: state => {
-    return state.todos.reverse()
+    return state.todos
   }
 }
 
 const actions = {
-  // Fetch todo list from api
-  fetchTodos ({commit}) {
-    axios.get('https://jsonplaceholder.typicode.com/todos')
-    .then(todos => {
-      // Receive todo list and update current state
-      commit('updateTodos', todos.data)
-    })
-    // Console log error if fetch failed
-    .catch(err => console.log(err))
-  },
   // Toggle todo completed
   toggleTodo ({commit, state}, todoId) {
     // Go through entire list and change the one being edited
@@ -50,7 +38,7 @@ const mutations = {
   },
   // Append a new todo to the list
   appendNewTodo: (state, payload) => {
-    state.todos.push(payload)
+    state.todos.unshift(payload)
   }
 }
 
