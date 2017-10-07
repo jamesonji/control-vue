@@ -121,7 +121,7 @@ export default {
 /* Transitions */
 
 .todo-enter-active {
-  transition: all 1s ease;
+  transition: all 1.3s ease;
 }
 .todo-enter, .todo-leave-to{
   transform: translateX(-10px);

@@ -1,8 +1,11 @@
 <template>
   <div class="nav">
-    <div class="nav-content">
+    <h3 class="profile" v-if="signedIn">
+      Hello! {{getUser.name}}.
+    </h3>
+    <div class="brand">
       <h1>Control Todo</h1>
-      <h3 v-if="signedIn">Hello {{getUser.username}} ! Click todo item to toggle them!</h3>
+      <h3 v-if="signedIn">Click todo item to toggle them!</h3>
     </div>
   </div>
 </template>
@@ -33,7 +36,12 @@ h1{
 h3{
   color: white;
 }
-.nav-content{
+.profile{
+  position: absolute;
+  top: 5px;
+  right: 20px;
+}
+.brand{
   display: flex;
   flex-direction: column;
   align-items: center;

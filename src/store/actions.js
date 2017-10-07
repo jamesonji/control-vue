@@ -36,9 +36,9 @@ export const signIn = ({ commit, state }, userName) => {
     .catch(err => {
       console.log(err)
       commit('notify/push', {
-        title: 'Notificaton',
-        text: 'Something went wrong, please try again',
-        type: 'warning'
+        title: 'Something went wrong',
+        text: 'Please try again later.',
+        type: 'error'
       }, { root: true })
     })
   }

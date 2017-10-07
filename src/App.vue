@@ -1,14 +1,13 @@
 <template>
   <div id="app">
     <Navigation></Navigation>
-    <notifications group="notification" position="top center"/>
+    <notifications group="notification" position="top center" :width="400"/>
     <Index></Index>
   </div>
 </template>
 
 <script>
 import Navigation from './components/Navigation.vue'
-import Notification from './components/Notification.vue'
 import Index from './components/Index.vue'
 import { mapState } from 'vuex'
 
@@ -16,7 +15,6 @@ export default {
   name: 'app',
   components: {
     Navigation,
-    Notification,
     Index
   },
   methods: {
@@ -71,5 +69,17 @@ export default {
   text-transform: uppercase;
   font-size: 10px;
   color: #2589F3;
+}
+.notification.warning{
+  background: #ffddc9;
+  color: red;
+}
+.notification.success{
+  background: #c5ffad;
+  color: #3d7f43;
+}
+.notification.error{
+  background: #ffb7b7;
+  color: #441e1e;
 }
 </style>
