@@ -22,7 +22,6 @@
       <transition-group name="todo">
         <div class="todo-list" v-for="todo in allTodos" :key="todo.id">
           <span class="todo" 
-                :key="todo.id"
                 :class="{complete: todo.completed}"
                 @click="toggleTodo(todo.id)"
                 >
