@@ -27,8 +27,8 @@ export const signIn = ({ commit, state }, userName) => {
         // sign failed
         commit('setSignedIn', false)
         commit('notify/push', {
-          title: 'Notificaton',
-          text: 'Failed to login, please try again',
+          title: 'Failed to login',
+          text: 'Please try your username again.',
           type: 'warning'
         }, { root: true })
       }

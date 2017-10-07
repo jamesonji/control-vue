@@ -1,5 +1,5 @@
 <template>
-  <div class="index-container">
+  <div class="main-container">
     <div class="login-container" v-if="!signedIn">
       <h3>Please enter your username to log in!</h3>
       <input type="text" name="username" v-model="username">
