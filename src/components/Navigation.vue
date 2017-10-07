@@ -2,7 +2,7 @@
   <div class="nav">
     <div class="nav-content">
       <h1>Control Todo</h1>
-      <h3 v-if="signedIn">Hello {{getUser.username}} !</h3>
+      <h3 v-if="signedIn">Hello {{getUser.username}} ! Click todo item to toggle them!</h3>
     </div>
   </div>
 </template>
@@ -26,6 +26,9 @@ export default {
 </script>
 
 <style scoped>
+h1{
+  color: white;
+}
 .nav-content{
   display: flex;
   flex-direction: column;

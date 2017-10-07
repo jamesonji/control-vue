@@ -6,7 +6,7 @@
       </md-button>
       
       <div class="new-todo-container" v-if="showNewTodoInput">
-        <input type="text" v-model="newTodo" class="todo-input"/>
+        <input type="text" v-model="newTodo" class="todo-input" placeholder="Enter new todo"/>
         
         <md-button class="md-fab md-primary md-mini" @click="addNewTodo(newTodo)">
           <md-icon>save</md-icon>
@@ -19,14 +19,17 @@
     </div>
     
     <div class="todo-list-container">
-      <div class="todo-list" v-for="todo in allTodos">
-        <span class="todo" 
-              :class="{complete: todo.completed}"
-              @click="toggleTodo(todo.id)"
-              >
-              {{todo.title}}
-        </span>
-      </div>
+      <transition-group name="todo">
+        <div class="todo-list" v-for="todo in allTodos" :key="todo.id">
+          <span class="todo" 
+                :key="todo.id"
+                :class="{complete: todo.completed}"
+                @click="toggleTodo(todo.id)"
+                >
+                {{todo.title}}
+          </span>
+        </div>
+      </transition-group>
     </div>
     
   </div>
@@ -115,4 +118,13 @@ export default {
   font-size: 1.2rem;
 }
 
+/* Transitions */
+
+.todo-enter-active {
+  transition: all 1s ease;
+}
+.todo-enter, .todo-leave-to{
+  transform: translateX(-10px);
+  opacity: 0;
+}
 </style>

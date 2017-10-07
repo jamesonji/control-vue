@@ -2,7 +2,7 @@
   <div class="main-container">
     <div class="login-container" v-if="!signedIn">
       <h3>Please enter your username to log in!</h3>
-      <input type="text" name="username" v-model="username">
+      <input type="text" name="username" v-model="username" placeholder="username">
       <button class="login-button" @click="signIn(username)">Login</button>
     </div>
     <template v-else>
