@@ -28,6 +28,10 @@ export default {
 <style scoped>
 h1{
   color: white;
+  font-size: 60px;
+}
+h3{
+  color: white;
 }
 .nav-content{
   display: flex;

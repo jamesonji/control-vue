@@ -2,6 +2,7 @@
   <div class="main-container">
     <div class="login-container" v-if="!signedIn">
       <h3>Please enter your username to log in!</h3>
+      <p>hint: you can use "Bret"</p>
       <input type="text" name="username" v-model="username" placeholder="username">
       <button class="login-button" @click="signIn(username)">Login</button>
     </div>
@@ -44,6 +45,9 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+h3, p{
+  color: white;
 }
 input{
   height: 50px;

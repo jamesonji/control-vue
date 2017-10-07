@@ -45,7 +45,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  background: #87AAFF;
+  background: #1c2b35;
   position: absolute;
   top:0px;
   left: 0px;
@@ -56,7 +56,6 @@ export default {
   align-items: center;
   justify-content: center;
 }
-
 .notification{
   margin: 10px;
   margin-bottom: 0;
