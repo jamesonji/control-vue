@@ -1,7 +1,7 @@
 <template>
   <div class="todo-container">   
     <div class="todo-control">
-      <md-button class="md-fab md-mini" v-show="!showNewTodoInput" @click="showTodoInput">
+      <md-button id="new-todo-button" class="md-fab md-mini" v-show="!showNewTodoInput" @click="showTodoInput">
         <md-icon>add</md-icon>
       </md-button>
       
