@@ -6,17 +6,21 @@
 
 <script>
 export default {
-  name: 'notification',
-  data () {
-  }
+  name: 'notification'
 }
 </script>
 
 <style>
 .success{
-  color: green
+  background-color: green
 }
 .error{
   color: red
+}
+.warning{
+  background-color: amber 
+}
+.info{
+  background-color: 
 }
 </style>
